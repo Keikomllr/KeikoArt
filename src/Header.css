@@ -1,0 +1,112 @@
+/* Header.css */
+@keyframes floatUp {
+  from {
+    opacity: 0; /* 最初は透明 */
+    transform: translateY(50px); /* 50px下からスタート */
+  }
+  to {
+    opacity: 1; /* 最終的に完全に表示 */
+    transform: translateY(0); /* 元の位置に移動 */
+  }
+}
+
+.header-title, .header-subtitle {
+  text-align: center; /* 中央揃え */
+  opacity: 0; /* 最初は見えない */
+  animation: floatUp 1.5s ease-out forwards; /* 1.5秒かけてアニメーション */
+}
+.header-title{
+ font-size: 4rem;
+}
+.header-subtitle{
+  padding-bottom: 2%;
+    font-size: 1.1rem;
+}
+
+
+
+/*-------HAMBURGER MENU------*/
+/* 全体のスタイル */
+@media (max-width: 768px) {
+header {
+ 
+  padding: 10px;
+  position: relative;
+}
+
+/* ハンバーガーメニューのボタン */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  display: block; /* スマホでもPCでも表示 */
+  position: relative;
+  z-index: 100; /* メニューの上に表示する */
+}
+
+/* ナビゲーションメニュー */
+.nav-menu {
+  list-style: none;
+  display: none; /* 初期状態では非表示 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50vh; /* 画面全体に広げる */
+  background: rgb(255, 255, 255,0.9); /* transparent white  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transform: translateY(-110%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* メニューが開いたとき */
+.nav-menu.open {
+  transform: translateY(0);
+}
+
+/* ナビゲーションのリンク */
+.nav-menu li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+}
+
+/* スマホ用のスタイル */
+
+  .hamburger {
+    position: fixed;
+    top: 35px;
+    left: 20px;
+  }
+
+  .nav-menu {
+    display: flex;
+  }
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    gap: 20px;
+  }
+  nav ul li{
+    padding-right: 10%;
+  }
+  nav ul li a {
+    
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: blue;
+  } 
