@@ -1,0 +1,175 @@
+/* Header.css */
+body{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.checkoutButton{
+  all:unset;
+  cursor: pointer; 
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color:  rgb(177, 177, 204); /* マウスオーバー時に文字色をグレーに変更 */
+}
+
+/*---TITLE FLOAT UP---*/
+@keyframes floatUp {
+  from {
+    opacity: 0; /* 最初は透明 */
+    transform: translateY(50px); /* 50px下からスタート */
+  }
+  to {
+    opacity: 1; /* 最終的に完全に表示 */
+    transform: translateY(0); /* 元の位置に移動 */
+  }
+}
+
+.header-title, .header-subtitle {
+  text-align: center; /* 中央揃え */
+  opacity: 0; /* 最初は見えない */
+  animation: floatUp 1.5s ease-out forwards; /* 1.5秒かけてアニメーション */
+}
+.header-title{
+ font-size: 4rem;
+}
+.header-title a{
+  text-decoration: none;
+ }
+.header-subtitle{
+  padding-bottom: 2%;
+    font-size: 1.1rem;
+}
+
+
+
+/*-------HAMBURGER MENU------*/
+/* ヘッダーのスタイル */
+header {
+  position: relative;
+}
+
+
+/* ハンバーガーメニュー（デフォルトは非表示） */
+.hamburger {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  background: rgb(255, 255, 255,0.9);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  display: none;
+}
+.hamburger:hover {
+  color: blue;
+} 
+
+/* スクロール後に表示されるハンバーガーメニュー */
+.sticky-hamburger {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: block; /* JavaScriptで制御 */
+}
+
+/* モバイル用 & スクロール後のメニュー（共通化） */
+.nav-menu {
+  font-size: 1.5rem;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 50vh; /* 画面の半分の高さ */
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* メニューが開いたとき */
+.nav-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 768px以上のデスクトップで、スクロール後にメニューが表示されるようにする */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: none; /* デフォルトは非表示 */
+  }
+
+  .nav-menu.visible {
+    display: flex; /* スクロール後に表示 */
+  }
+}
+
+/* 768px以下のモバイル向け */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* PCのナビゲーションを隠す */
+  }
+  .header-title{padding-top: 5%;}
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+  }
+
+  .nav-menu {
+    display: flex;
+  }
+}
+
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  gap: 20px;
+}
+nav ul li{
+  padding-right: 10%;
+}
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: rgb(177, 177, 204);
+} 
+
+/*--EMAIL ME--*/
+body{
+  position:relative;
+}
+.emailMe{
+  position:fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: aliceblue;
+  border-radius: 100%;
+  height: fit-content;
+}
