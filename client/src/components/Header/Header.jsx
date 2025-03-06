@@ -31,30 +31,37 @@ const Header = () => {
   return (
     <header>
       <main>
-            <a href="/">
-              <h1 className="text-8xl p-4 font-bold .object-cover  header-title">KEIKO SUZUKI MÖLLER</h1>
-            </a>  
-            <p className="header-subtitle">Artist / Illustrator</p>
-            <div className="navitem buttons">
-              <a href="/basket">
-                <button className="checkoutButton basket">
-                  <img src="/img/basket.png" alt="Basket Icon" />
-                </button>
-              </a>
+            <div>
+              <a href="/">
+                <h1 className="text-8xl p-4 font-bold .object-cover  header-title">KEIKO SUZUKI MÖLLER</h1>
+              </a>  
+              <div>
+                <p className="header-subtitle">Artist / Illustrator</p>
+                <div className="absolute top-14 right-2 navitem buttons">
+                  <a href="/basket">
+                    <button className="checkoutButton basket">
+                      <img src="/img/basket.png" alt="Basket Icon" className="w-9 m-1"/>
+                    </button>
+                  </a>
+                  <a href="/favotite">
+                    <button className="checkoutButton favorite">
+                      <img src="/img/heart.png" alt="heart Icon" className="w-9 m-1" />
+                    </button>
+                  </a>
 
-              <a href="/favotite">
-                <button className="checkoutButton favorite">
-                  <img src="/img/heart.png" alt="heart Icon" />
-                </button>
-              </a>
-
+                    <button className="checkoutButton search">
+                      <img src="/img/search.png" alt="search Icon" className="w-9 m-1" />
+                    </button>
+                  </div>
+              </div>
             </div>
+           
       </main>
       <nav className="navbar desktop-nav">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/about">Gallery</a></li>
-          <li><a href="/products">Store</a></li>
+          <li><a href="/artworks">Gallery</a></li>
+          <li><a href="/store">Store</a></li>
           <li><a href="/biography">About</a></li>
           <li><a href="https://www.instagram.com/keicoccosuzuki/">Instagram</a></li>
           <li><a href="/contact">Contact</a></li>

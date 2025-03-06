@@ -1,14 +1,16 @@
 // import { Routes, Route } from "react-router";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-// import Detail from "./pages/Detail";
+import Home from "./pages/Home/Home";
+import Detail from "./pages/Detail/Detail";
+import Productslist from "./pages/Admin/Products/Productslist";
 
 function App() {
   return (
        <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/detail" element={<Detail />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/artworks/:id" element={<Detail />} />
+        <Route path="/admin/artworks_list" element={<Productslist />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     );
 }

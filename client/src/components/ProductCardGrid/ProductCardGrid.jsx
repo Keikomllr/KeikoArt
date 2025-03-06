@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
   
   const ProductCardGrid = ( { headline, products } ) => {
@@ -5,13 +6,17 @@
   return (
    
       <section className="productCardGrid">
-        <h2 className="text-center p-5 text-3xl font-bold product-headline">{headline}</h2>
+        <h2 className="text-center p-5 text-3xl font-bold product-headline">
+          {headline}
+        </h2>
         <div className="product-card-container">
           {products.map((product) => (
             <div key={product.id} className="product-card">  
                 {/* Need "KEY" for Unique ID in div element, otherwise it will get error. */}
-              <img src={product.image} alt="" />
-              <h3 className="product-name">{product.name}</h3>
+              <Link to={`/artworks/${product.id}`}>  
+                <img src={product.image} alt="" />
+                <h3 className="product-name">{product.title}</h3>
+              </Link>
             </div>     
 
           ))}    

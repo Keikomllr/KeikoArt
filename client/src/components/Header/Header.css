@@ -119,9 +119,13 @@ header {
     display: flex; /* スクロール後に表示 */
   }
 }
-
+@media (max-width: 1000px) {
+  .header-title{
+    font-size: 2rem;
+  }
+}
 /* 768px以下のモバイル向け */
-@media (max-width: 768px) {
+@media (max-width: 768px) {  
   .desktop-nav {
     display: none; /* PCのナビゲーションを隠す */
   }
