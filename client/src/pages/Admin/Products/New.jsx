@@ -76,133 +76,172 @@ function NewArtwork () {
 
     return (
         <>
-            <h1 className=" bg-gray-200 p-10 text-5xl font-bold shadow-lg">Administration</h1>
+            <h1 className="flex items-center justify-center bg-gray-200 p-10 text-5xl font-bold shadow-lg">
+                Administration
+            </h1>
 
-            <h2 className="p-5 text-3xl font-bold">New Artwork</h2>
-            <form onSubmit={handleSubmit}>
-                
-                <div className="p-5 text-xl font-bold .flex-col ">
-                    <div>
-                        <label htmlFor="title">Title</label>
-                    </div>    
-                    <div>
-                        <input 
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleInputChange} 
-                        className="bg-gray-50 border border-gray-500 max-w-md rounded"
-                        />
-                    </div>    
-                </div>
-                <div>
-                    <label htmlFor="size">size</label>
-                    <input 
-                        type="text"
-                        id="size"
-                        name="size"
-                        value={formData.size}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="year">Year</label>
-                    <input 
-                        type="text"
-                        id="year"
-                        name="year"
-                        value={formData.year}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="material">Material</label>
-                    <input 
-                        type="text"
-                        id="material"
-                        name="material"
-                        value={formData.material}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="price">Price</label>
-                    <input 
-                        type="text"
-                        id="price"
-                        name="price"
-                        value={formData.price}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="description">Description</label>
-                    <input 
-                        type="text"
-                        id="description"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label>Category</label><br />
-                    {["Watercolor", "Degital", "Drawing", "Sculpture", "Canvas"].map((category) => (
-                        <label key={category}>
+            <div className="min-h-screen flex items-center justify-center text-white p-10">
+                <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-md">
+                    <h2 className="text-3xl font-bold mb-6 text-center">New Artwork</h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                            <label htmlFor="title" className="block text-xl font-medium">
+                                Title
+                            </label>
+                            <input 
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={formData.title}
+                            onChange={handleInputChange} 
+                            className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            placeholder="Enter title"
+                            />
+                        </div>    
+                        
+                        <div>
+                            <label htmlFor="size" className="block text-xl font-medium">
+                                size
+                            </label>
+                            <input 
+                                type="text"
+                                id="size"
+                                name="size"
+                                value={formData.size}
+                                onChange={handleInputChange}
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter size" 
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="year" className="block text-xl font-medium">
+                                Year
+                            </label>
+                            <input 
+                                type="text"
+                                id="year"
+                                name="year"
+                                value={formData.year}
+                                onChange={handleInputChange} 
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter year"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="material" className="block text-xl font-medium">
+                                Material
+                            </label>
+                            <input 
+                                type="text"
+                                id="material"
+                                name="material"
+                                value={formData.material}
+                                onChange={handleInputChange} 
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter material"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="price" className="block text-xl font-medium">
+                                Price (SEK)
+                            </label>
+                            <input 
+                                type="text"
+                                id="price"
+                                name="price"
+                                value={formData.price}
+                                onChange={handleInputChange} 
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter price"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="description" className="block text-xl font-medium">
+                                Description
+                            </label>
+                            <textarea 
+                                id="description"
+                                name="description"
+                                value={formData.description}
+                                onChange={handleInputChange} 
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32"
+                                placeholder="Write description here..."
+                            />
+                        </div>
+                        <div>
+                        <label className="block text-xl font-medium mb-2">Category</label>
+                            <div className="flex flex-wrap gap-4">
+                                {["Watercolor", "Digital", "Drawing", "Sculpture", "Canvas"].map((category) => (
+                                <label key={category} className="flex items-center space-x-2">
+                                    <input 
+                                    type="checkbox"
+                                    value={category}
+                                    checked={formData.category.includes(category)}
+                                    onChange={handleCategoryChange}
+                                    className="w-4 h-4 accent-blue-500"
+                                    />
+                                    <span>{category}</span>
+                                </label>
+                            ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label htmlFor="image" className="block text-xl font-medium">Image</label>
+                            <input 
+                                type="text"
+                                id="image"
+                                name="image"
+                                value={formData.image}
+                                onChange={handleInputChange} 
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter image URL"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="image2" className="block text-xl font-medium">Image2 (optional)</label>
+                            <input 
+                                type="text"
+                                id="image2"
+                                name="image2"
+                                value={formData.image2}
+                                onChange={handleInputChange}
+                                className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                placeholder="Enter image URL" 
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="availability" className="block text-xl font-medium">
+                                Availability
+                            </label>
                             <input 
                                 type="checkbox"
-                                value={category}
-                                checked={formData.category.includes(category)}
-                                onChange={handleCategoryChange} 
+                                id="availability"
+                                name="availability"
+                                value={formData.availability}
+                                onChange={handleCheckboxChange} 
                             />
-                            {category}
-                        </label>
-                    ))}
+                            <span>  Yes, this is available.</span>
+                        </div>
+                        <div>
+                            <label htmlFor="for_sale" className="block text-xl font-medium">
+                                For Sale
+                            </label>
+                            <input 
+                                type="checkbox"
+                                id="for_sale"
+                                name="for_sale"
+                                value={formData.for_sale}
+                                onChange={handleCheckboxChange} 
+                            />
+                            <span>  Yes, this is for sale.</span>
+                        </div>
+                        <button type="submit" className="w-full py-3 mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-200">
+                            Submit
+                        </button>
+                    </form>
                 </div>
-
-                <div>
-                    <label htmlFor="image">Image</label>
-                    <input 
-                        type="text"
-                        id="image"
-                        name="image"
-                        value={formData.image}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="image2">Image2 (optional)</label>
-                    <input 
-                        type="text"
-                        id="image2"
-                        name="image2"
-                        value={formData.image2}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="availability">Availability</label>
-                    <input 
-                        type="checkbox"
-                        id="availability"
-                        name="availability"
-                        value={formData.availability}
-                        onChange={handleCheckboxChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="for_sale">For Sale</label>
-                    <input 
-                        type="checkbox"
-                        id="for_sale"
-                        name="for_sale"
-                        value={formData.for_sale}
-                        onChange={handleCheckboxChange} 
-                        />
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+            </div>    
         </>
     );
 }
