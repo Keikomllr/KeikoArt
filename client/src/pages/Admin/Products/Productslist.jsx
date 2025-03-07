@@ -1,9 +1,26 @@
 import styled from "styled-components";
-
+import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
+const TableConteiner = styled.div`
+  
+  display:block;
+  padding:10px;
+  padding-right:10px;
+`;
+
+const SubTitles = styled.div`
+  max-width:1030px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-left:10px;
+  padding:10px;
+`;
+
+
 const Table = styled.table`
-    margin: 30px;
+  margin: 30px;
   width: 100%;
   max-width: 1000px;
   background-color: #000000;
@@ -12,6 +29,7 @@ const Table = styled.table`
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  marging-right:10px;
 `;
 
 
@@ -55,30 +73,44 @@ const TableRow = styled.tr`
         },[]);
 
     return (
-        <>  
-        <h1 className="p-5 text-5xl font-bold">Administration</h1>
-        <h2>Artworks</h2>
-        <button>Ny Artwork</button>
-        <Table>
-            <thead>
-                <TableHeader>Title</TableHeader>
-                <TableHeader>Image</TableHeader>
-                <TableHeader>Size</TableHeader>
-                <TableHeader>Material</TableHeader>
-                <TableHeader>Price</TableHeader>                
-            </thead>
-            <tbody>
-                {products.map(product => (
-                <TableRow key={product.id}>
-                        <TableCell>{product.title}</TableCell>
-                        <TableCell><img src={product.image} alt="" width="60px" /></TableCell>
-                        <TableCell>{product.size}</TableCell>
-                        <TableCell>{product.material}</TableCell>
-                        <TableCell>{product.price} kr</TableCell>
-                </TableRow>
-                ))}
-            </tbody>
-        </Table>
+        <> 
+         
+            <h1 className=" bg-gray-200 p-10 text-5xl font-bold shadow-lg">Administration</h1>
+            
+            
+           <TableConteiner>
+                <SubTitles>
+                    <div>
+                        <h2 className="p-5 text-3xl font-bold">Artworks</h2>
+                    </div>
+                    <div>
+                        <Link to="/admin/artworks/new">
+                            <button class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                            New Artwork</button>
+                        </Link>
+                    </div>
+                </SubTitles>    
+                <Table>
+                    <thead>
+                        <TableHeader>Title</TableHeader>
+                        <TableHeader>Image</TableHeader>
+                        <TableHeader>Size</TableHeader>
+                        <TableHeader>Material</TableHeader>
+                        <TableHeader>Price</TableHeader>                
+                    </thead>
+                    <tbody>
+                        {products.map(product => (
+                        <TableRow key={product.id}>
+                                <TableCell>{product.title}</TableCell>
+                                <TableCell><img src={product.image} alt="" width="60px" /></TableCell>
+                                <TableCell>{product.size}</TableCell>
+                                <TableCell>{product.material}</TableCell>
+                                <TableCell>{product.price} kr</TableCell>
+                        </TableRow>
+                        ))}
+                    </tbody>
+                </Table>
+            </TableConteiner>    
         </> 
     );
 };

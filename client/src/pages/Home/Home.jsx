@@ -43,7 +43,7 @@ const Home = () =>{
         { id:2, title: "Canvas", image: "/img/wolfgirl.jpg"},
         { id:3, title: "Drawings", image: "/img/emil.jpg"},
         { id:4, title: "Sculptures", image: "/img/morimori3d.jpg"},
-        { id:5, title: "Illustrations", image: "/img/sunaonna.jpg"},
+        { id:5, title: "Degitals", image: "/img/sunaonna.jpg"},
       ];
     
       const articles = [

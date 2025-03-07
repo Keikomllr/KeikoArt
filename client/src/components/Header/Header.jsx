@@ -58,14 +58,16 @@ const Header = () => {
            
       </main>
       <nav className="navbar desktop-nav">
-        <ul>
+        <div>
+          <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/artworks">Gallery</a></li>
           <li><a href="/store">Store</a></li>
           <li><a href="/biography">About</a></li>
           <li><a href="https://www.instagram.com/keicoccosuzuki/">Instagram</a></li>
           <li><a href="/contact">Contact</a></li>
-        </ul>
+          </ul>
+        </div>
       </nav>
 
          {/* モバイルでは常に表示、デスクトップではスクロール後に表示 */}

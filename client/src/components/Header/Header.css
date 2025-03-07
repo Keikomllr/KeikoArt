@@ -150,10 +150,11 @@ nav ul {
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
-  gap: 20px;
+  width:100%;
+  overflow: hidden;
 }
 nav ul li{
-  padding-right: 10%;
+  padding-left: 5%;
 }
 nav ul li a {
   text-decoration: none;

@@ -23,15 +23,20 @@ function Detail() {
         <div className="header-container">
                 <Header />
         </div>
-            <img src={product.image} alt="" />
-            <h1>Title: {product.title}</h1>
-            <p>Year: {product.year}</p>
-            <p>Size: {product.size}</p>
-            <p>Materials: {product.material}</p>
-            <p>Price: {product.price} SEK</p>
-            <p>Description: {product.description}</p>
-            <p>Category: {product.category}</p>
-
+        <main className="flex flex-row p-10">
+            <div>
+                <img src={product.image} alt="" />
+            </div>    
+            <div>
+                <h1 className="text-4xl font-bold">Title: {product.title}</h1>
+                <p>Year: {product.year}</p>
+                <p>Size: {product.size}</p>
+                <p>Materials: {product.material}</p>
+                <p>Price: {product.price} SEK</p>
+                <p>Description: {product.description}</p>
+                <p>Category: {product.category}</p>
+            </div>    
+        </main>
 
 
         </>
