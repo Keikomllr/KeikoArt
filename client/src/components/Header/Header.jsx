@@ -31,27 +31,31 @@ const Header = () => {
   return (
     <header>
       <main>
-            <div>
+            <div className="relative"> 
+              <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 animate-pulse absolute inset-x-6 top-7"/>
               <a href="/">
                 <h1 className="text-8xl p-4 font-bold .object-cover  header-title">KEIKO SUZUKI MÖLLER</h1>
               </a>  
-              <div>
-                <p className="header-subtitle">Artist / Illustrator</p>
-                <div className="absolute top-14 right-2 navitem buttons">
-                  <a href="/basket">
-                    <button className="checkoutButton basket">
-                      <img src="/img/basket.png" alt="Basket Icon" className="w-9 m-1"/>
-                    </button>
-                  </a>
-                  <a href="/favotite">
-                    <button className="checkoutButton favorite">
-                      <img src="/img/heart.png" alt="heart Icon" className="w-9 m-1" />
-                    </button>
-                  </a>
-
-                    <button className="checkoutButton search">
-                      <img src="/img/search.png" alt="search Icon" className="w-9 m-1" />
-                    </button>
+                <div>
+                  <p className="header-subtitle">Artist / Illustrator</p>
+                    <div className="flex flex-col navitem buttons">
+                      <div>
+                        <a href="/basket">
+                          <button className="checkoutButton basket">
+                            <img src="/img/basket.png" alt="Basket Icon" className="w-9 m-1"/>
+                          </button>
+                        </a>
+                      </div>
+                      <div>
+                        <a href="/favotite">
+                          <button className="checkoutButton favorite">
+                            <img src="/img/heart.png" alt="heart Icon" className="w-9 m-1" />
+                          </button>
+                        </a>
+                        <button className="checkoutButton search">
+                          <img src="/img/searching-bar.png" alt="search Icon" width="100px" className="m-1" />
+                        </button>
+                      </div>
                   </div>
               </div>
             </div>

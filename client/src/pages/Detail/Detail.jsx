@@ -23,11 +23,11 @@ function Detail() {
         <div className="header-container">
                 <Header />
         </div>
-        <main className="flex flex-row p-10">
+        <main className="flex sm:flex-col md:flex-row p-10">
             <div>
                 <img src={product.image} alt="" />
             </div>    
-            <div>
+            <div className="p-6">
                 <h1 className="text-4xl font-bold">Title: {product.title}</h1>
                 <p>Year: {product.year}</p>
                 <p>Size: {product.size}</p>
@@ -35,6 +35,13 @@ function Detail() {
                 <p>Price: {product.price} SEK</p>
                 <p>Description: {product.description}</p>
                 <p>Category: {product.category}</p>
+                <br />
+                <form method="post" action="/basket">
+                    <input type="hidden" name="productId" value={product.id}></input>
+                    <button class="bg-transparent hover:bg-blue-400 text-blue-700 font-semibold hover:text-white py-2 px-20 border border-blue-500 hover:border-transparent rounded">
+                        Add to cart
+                    </button>
+                </form>
             </div>    
         </main>
 

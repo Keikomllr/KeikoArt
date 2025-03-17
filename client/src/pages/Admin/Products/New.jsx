@@ -76,13 +76,14 @@ function NewArtwork () {
 
     return (
         <>
-            <h1 className="flex items-center justify-center bg-gray-200 p-10 text-5xl font-bold shadow-lg">
+            <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
+            <h1 className="flex items-center justify-center bg-gray-200 p-10 text-4xl font-bold shadow-lg">
                 Administration
             </h1>
 
             <div className="min-h-screen flex items-center justify-center text-white p-10">
                 <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-md">
-                    <h2 className="text-3xl font-bold mb-6 text-center">New Artwork</h2>
+                    <h2 className="text-2xl font-bold mb-6 text-center">New Artwork</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <label htmlFor="title" className="block text-xl font-medium">

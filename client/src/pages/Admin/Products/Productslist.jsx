@@ -74,9 +74,10 @@ const TableRow = styled.tr`
 
     return (
         <> 
-         
-            <h1 className=" bg-gray-200 p-10 text-5xl font-bold shadow-lg">Administration</h1>
-            
+          <div>
+            <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
+            <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
+          </div>  
             
            <TableConteiner>
                 <SubTitles>
