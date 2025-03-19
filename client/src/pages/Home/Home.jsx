@@ -1,11 +1,10 @@
 import {useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
 import Category from "../../components/Category/Category"
 import ProductCardGrid from "../../components/ProductCardGrid/ProductCardGrid";
 import Hero from "../../components/Hero/Hero"; 
 import Article from "../../components/Article/Article";
 import "../../App.css";
-import "../../components/Header/Header.css";
+
 
 const Home = () =>{
 
@@ -18,15 +17,6 @@ const Home = () =>{
       setProducts(data);
     })
   },[]); 
-
-    // const products = [
-    //     { id:1, name: "Star Tree", image: "/img/startree.jpg"},
-    //     { id:2, name: "Fox Man", image: "/img/foxman.jpg"},
-    //     { id:3, name: "Snow Drops", image: "/img/snowdrops.jpg"},
-    //     { id:4, name: "Star boy", image: "/img/starboy.jpg"},
-    //     { id:5, name: "Baby Rabbits", image: "/img/babyrabbits.jpg"},
-    //   ];
-
     
     const hero = {
         video: "/videos/anythingnosounds.MP4",
@@ -35,8 +25,6 @@ const Home = () =>{
         buttonLink: "/products/products",
         image: "/img/hero.jpg"
     };
-
-
     
       const categories = [
         { id:1, title: "Water Colors", image: "/img/moon.jpg"},
@@ -54,17 +42,10 @@ const Home = () =>{
 
       return (
         <>
-           <div className="header-container">
-                <Header />
-            </div>
-
             <Hero hero={hero} />
-
             <Category headline="Categories" categories={categories} />  
-            <ProductCardGrid headline="Water Colors" products={products} />
-
+            <ProductCardGrid headline="New In" products={products} />
             <Article headline="Videos" articles={articles} />
-
         </>
     );
 };

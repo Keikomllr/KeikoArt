@@ -97,6 +97,17 @@ app.post("/api/artworks", (req, res) => {
     res.status(201).json({ message: "Artwork added successfully", product });
 });    
 
+// 🔍 SQLite の検索 API
+app.get("/api/search", (req, res) => {
+    const query = req.query.q; // フロントエンドからの検索ワード
+    try {
+      const stmt = db.prepare("SELECT * FROM artworks WHERE title LIKE ?");
+      const results = stmt.all(`%${query}%`); // 🔥 部分一致検索（LIKE を使用）
+      res.json(results);
+    } catch (error) {
+      res.status(500).json({ message: "検索エラー", error });
+    }
+  });
 
 // サーバー起動
 app.listen(port, () => {
