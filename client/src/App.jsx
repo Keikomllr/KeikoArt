@@ -1,4 +1,3 @@
-// import { Routes, Route } from "react-router";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";
@@ -8,15 +7,17 @@ import Basket from "./pages/Basket/Basket";
 import HomeLayout from "./components/HomeLayout/HomeLayout";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import About from "./pages/About/About";
+import Gallery from "./pages/Gallery/Gallery";
 
 function App() {
   return (
        <Routes>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/artworks/:id" element={<Detail />} />
+          <Route path="/artworks/:slug" element={<Detail />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/about" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Route>
 
         <Route path="/admin/artworks_list" element={<Productslist />} />

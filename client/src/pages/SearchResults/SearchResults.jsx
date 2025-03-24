@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router";
+
 
 const SearchResults = () => {
   const location = useLocation();
@@ -22,18 +24,25 @@ const SearchResults = () => {
 
   return (
     <div>
-      <h2>Search Results: "{query}"</h2>
-      <p>Found results: {results.length}</p>
-      
+        <div className="bg-slate-200 p-5 mt-4"> 
+            <h2 className="text-4xl font-bold text-center">Search Results: "{query}"</h2>
+            <p className="text-2xl font-semibold text-center mt-4">Found results: {results.length}</p>
+        </div>
+
       {results.length === 0 ? (
         <p>No matching artworks found.</p>
       ) : (
-        <ul>
+        <ul className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 mx-auto gap-2 p-4">
           {results.map((item) => (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>カテゴリ: {item.category}</p>
-              <img src={item.image} alt={item.title} />
+            <li key={item.id} className="border rounded shadow p-4">
+              <Link to={`/artworks/${item.id}`}>
+              <img src={item.image} alt={item.title} className="w-full"/>
+              <h3 className="text-xl font-bold mt-2">{item.title}</h3>
+              <div className="flex justify-between items-center">
+                  <p>{item.category}</p>              
+                  <img src="/img/heart.png" alt="" className="h-6 w-6 pr-0" />    
+              </div>
+              </Link>
             </li>
           ))}
         </ul>
@@ -41,5 +50,6 @@ const SearchResults = () => {
     </div>
   );
 };
+
 
 export default SearchResults;

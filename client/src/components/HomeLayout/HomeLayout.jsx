@@ -36,6 +36,25 @@ const HomeLayout = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  //-----FOOTER----------
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [openSection, setOpenSection] = useState(null);
+
+  // 画面サイズが変わったら isMobile を更新
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleSection = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
+
+
   return (
     <div>
       <header>
@@ -47,8 +66,8 @@ const HomeLayout = () => {
             <div className="absolute left-1/2 transform -translate-x-1/2">
               <Link to="/">
                 <h1 className="text-8xl p-4 font-bold .object-cover    header-title">KEIKO SUZUKI MÖLLER</h1>
+                <p className="header-subtitle mb-2 relative bottom-4">Artist / Illustrator</p>
               </Link>  
-              <p className="header-subtitle">Artist / Illustrator</p>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -77,7 +96,7 @@ const HomeLayout = () => {
               <li><NavLink to="/" end className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
                 Home
               </NavLink></li>
-              <li><NavLink to="/artworks" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
+              <li><NavLink to="/gallery" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
                 Gallery
               </NavLink></li>
               <li><NavLink to="/store" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
@@ -109,7 +128,7 @@ const HomeLayout = () => {
           <li><NavLink to="/" end className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
             Home
           </NavLink></li>
-          <li><NavLink to="/artworks" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
+          <li><NavLink to="/gallery" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
             Gallery
           </NavLink></li>
           <li><NavLink to="/store" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
@@ -138,7 +157,139 @@ const HomeLayout = () => {
       <Outlet />
     </main>
 
-    <footer className="bg-color-">
+
+    <footer className="py-12">
+      <section className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 border shadow">
+        <div className="flex flex-row items-center p-4">
+          <div> 
+            <img src="/img/globe-earth.png" alt="" />
+          </div>
+          <div className="p-2 text-xl font-bold text-gray-400">
+            <p>Global Delivery</p>
+          </div>
+        </div>
+        <div className="flex flex-row items-center p-4">
+          <div>
+            <img src="/img/return.png" alt="" />
+          </div>
+          <div className="p-2 text-xl font-bold text-gray-400">
+            <p>Free returns</p>
+          </div>
+        </div>
+        <div className="flex flex-row items-center p-4">
+          <div>
+            <img src="/img/security.png" alt="" />
+          </div>
+          <div className="p-2 text-xl font-bold text-gray-400">
+            <p>Safe Payments</p>
+          </div>
+        </div>
+        <div className="flex flex-row items-center p-4">
+          <div>
+            <img src="/img/smile.png" alt="" />
+          </div>
+          <div className="p-2 text-xl font-bold text-gray-400">
+            <p>News Letter</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-100 p-6">
+      {/* 640px以上で横並び */}
+      <div className="hidden md:grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {/* カラム1 */}
+        <div>
+          <h3 className="font-bold mb-2">About</h3>
+          <ul className="text-sm space-y-1">
+            <li>About</li>
+            <li>Company</li>
+            <li>Press</li>
+            <li>Carrer</li>
+          </ul>
+        </div>
+        
+        {/* カラム2 */}
+        <div>
+          <h3 className="font-bold mb-2">Follow Me</h3>
+          <ul className="text-sm space-y-1">
+            <li>Instagram</li>
+            <li>Facebook</li>
+            <li>Pinterest</li>
+            <li>TikTok</li>
+          </ul>
+        </div>
+
+        {/* カラム3 */}
+        <div>
+          <h3 className="font-bold mb-2">Custermer Service</h3>
+          <ul className="text-sm space-y-1">
+            <li>FAQ</li>
+            <li>Return</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+
+        {/* カラム4 */}
+        <div>
+          <h3 className="font-bold mb-2">News Letter</h3>
+          <p className="text-sm mb-2">Subscribe and get access to news, offers, and inspiration!</p>
+          <input
+            type="email"
+            placeholder="Skriv in e-mail"
+            className="border px-2 py-1 w-full text-sm mb-2"
+          />
+          <button className="text-sm bg-gray-800 text-white px-4 py-1 rounded">
+            Follow
+          </button>
+          <p className="text-xs mt-2">
+            <a href="#" className="text-gray-500 underline">Read our integritetspolicy</a>
+          </p>
+        </div>
+      </div>
+
+      {/* 640px以下ではアコーディオン */}
+      <div className="md:hidden">
+        {[
+          { title: "About Us", items: ["Our Story", "Company", "Press", "Careers"], id: "section1" },
+          { title: "Follow Us", items: ["Instagram", "TikTok", "Pinterest", "Facebook"], id: "section2" },
+          { title: "Customer Service", items: ["FAQ", "Returns", "Contact"], id: "section3" },
+        ].map(({ title, items, id }) => (
+          <div key={id} className="border-b py-2">
+            <h3
+              className="font-bold cursor-pointer flex justify-between items-center"
+              onClick={() => toggleSection(id)}
+            >
+              {title}
+              <span>{openSection === id ? "−" : "+"}</span>
+            </h3>
+            <ul className={`${openSection === id ? "block" : "hidden"} text-sm space-y-1 mt-2`}>
+              {items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        {/* Newsletter Section (Mobile) */}
+        <div className="py-2">
+          <h3 className="font-bold">Newsletter</h3>
+          <p className="text-sm mb-2">Subscribe and get access to news, offers, and inspiration.</p>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="border px-2 py-1 w-full text-sm mb-2"
+          />
+          <button className="text-sm bg-gray-800 text-white px-4 py-1 rounded">
+            Subscribe
+          </button>
+          <p className="text-xs mt-2">
+            <a href="#" className="text-gray-500 underline">Read our privacy policy</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+
       <hr />
        <p className="text-center text-xl border-l p-4">© 2025 Keiko Suzuki Möller</p>
     </footer>

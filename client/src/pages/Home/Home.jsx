@@ -27,11 +27,13 @@ const Home = () =>{
     };
     
       const categories = [
-        { id:1, title: "Water Colors", image: "/img/moon.jpg"},
-        { id:2, title: "Canvas", image: "/img/wolfgirl.jpg"},
-        { id:3, title: "Drawings", image: "/img/emil.jpg"},
-        { id:4, title: "Sculptures", image: "/img/morimori3d.jpg"},
-        { id:5, title: "Degitals", image: "/img/sunaonna.jpg"},
+        { id:1, title: "Water Colors", image: "/img/moon.jpg", url: "/gallery"},
+        { id:2, title: "Canvas", image: "/img/wolfgirl.jpg", url: "/gallery"},
+        { id:3, title: "Drawings", image: "/img/emil.jpg", url: "/gallery"},
+        { id:4, title: "Sculptures", image: "/img/morimori3.jpg", url: "/gallery"},
+        { id:5, title: "Degitals", image: "/img/sunaonna.jpg", url: "/gallery"},
+        { id:6, title: "Series", image: "/img/deergirl.jpg", url: "/gallery"},
+        { id:7, title: "Others", image: "/img/woods.jpg", url: "/gallery"},
       ];
     
       const articles = [

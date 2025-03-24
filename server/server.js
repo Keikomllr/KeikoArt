@@ -19,10 +19,10 @@ app.get("/api/artworks", (req, res) => {
     res.json(products); // 変数名を統一
 });
 
-app.get("/api/artworks/:id", (req, res) => {
-    const productId = req.params.id;
+app.get("/api/artworks/slug/:slug", (req, res) => {
+    const productSlug = req.params.slug;
 
-    const product = db.prepare('SELECT * FROM artworks WHERE id = ?').get(productId);
+    const product = db.prepare('SELECT * FROM artworks WHERE slug = ?').get(productSlug);
     
     if (!product) {
         res.status(404).send();
@@ -37,6 +37,7 @@ app.post("/api/artworks", (req, res) => {
 
     const {
         title,
+        slug,
         size,
         year,
         material,
@@ -51,7 +52,8 @@ app.post("/api/artworks", (req, res) => {
     
 
     const product = { 
-        title: title || "", 
+        title: title || "",
+        slug: slug || "", 
         size: size || "", 
         year: Number(year) || null,  // 数字に変換（失敗したら null）
         material: material || "", 
@@ -67,6 +69,7 @@ app.post("/api/artworks", (req, res) => {
     const insert = db.prepare(`
         INSERT INTO artworks (
         title,
+        slug,
         size,
         year,
         material,
@@ -79,6 +82,7 @@ app.post("/api/artworks", (req, res) => {
         for_sale
       ) VALUES (
         @title,
+        @slug,
         @size,
         @year,
         @material,

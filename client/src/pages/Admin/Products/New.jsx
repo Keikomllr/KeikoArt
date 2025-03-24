@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewArtwork () {
+    const navigate = useNavigate();
 
     const [ formData, setFormData] = useState({
         title: "",
@@ -29,7 +31,7 @@ function NewArtwork () {
         })
         .then(resp => {
             if(resp.ok){
-                // TODO skicka till startsidan
+                //skicka till startsidan
                 alert("Added a new artwork!" 
                 ) // 成功したらアラートを表示
             }
@@ -241,6 +243,13 @@ function NewArtwork () {
                             Submit
                         </button>
                     </form>
+                
+                    <button 
+                        onClick={() => navigate("/admin/artworks_list")}
+                        className="w-full py-3 mt-4 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-lg transition duration-200">
+                            Go back to list
+                    </button>
+                
                 </div>
             </div>    
         </>

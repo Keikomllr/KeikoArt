@@ -76,7 +76,9 @@ const TableRow = styled.tr`
         <> 
           <div>
             <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
-            <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
+            <Link to="/">
+             <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
+            </Link>
           </div>  
             
            <TableConteiner>
@@ -86,18 +88,20 @@ const TableRow = styled.tr`
                     </div>
                     <div>
                         <Link to="/admin/artworks/new">
-                            <button class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                            <button className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                             New Artwork</button>
                         </Link>
                     </div>
                 </SubTitles>    
                 <Table>
                     <thead>
+                      <tr>
                         <TableHeader>Title</TableHeader>
                         <TableHeader>Image</TableHeader>
                         <TableHeader>Size</TableHeader>
                         <TableHeader>Material</TableHeader>
                         <TableHeader>Price</TableHeader>                
+                      </tr>
                     </thead>
                     <tbody>
                         {products.map(product => (

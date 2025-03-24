@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
   
-  const ProductCardGrid = ( { headline, products } ) => {
+  const ProductCardGrid = ( { headline, products, maxDisplay = 8 } ) => {
 
   return (
    
@@ -10,12 +10,18 @@ import { Link } from "react-router";
           {headline}
         </h2>
         <div className="product-card-container relative">
-          {products.map((product) => (
-            <div key={product.id} className="product-card">  
+          {products.slice(0,maxDisplay).map((product) => (
+            <div key={product.id} className="product-card rounded shadow p-4">  
                 {/* Need "KEY" for Unique ID in div element, otherwise it will get error. */}
-              <Link to={`/artworks/${product.id}`}>  
+              <Link to={`/artworks/${product.slug}`}>  
                 <img src={product.image} alt="" />
-                <h3 className="product-name">{product.title}</h3>
+                <div className="mt-1 flex justify-between mx-auto"> 
+                  <h3 className="text-1xl font-bold">{product.title}</h3>
+                  <img src="/img/heart.png" alt="favorite_icon" className="h-6 w-6"/>
+                </div>
+                <div>
+                  <p className="">{product.price} SEK</p>
+                </div>
               </Link>
               <img src="/img/new3.png" alt="new_icon" className="absolute top-8  w-12 m-2"/>
             </div>     
