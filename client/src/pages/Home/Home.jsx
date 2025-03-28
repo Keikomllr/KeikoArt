@@ -22,7 +22,7 @@ const Home = () =>{
         video: "/videos/anythingnosounds.MP4",
         type: "video/mp4",
         buttonLabel: "View All",
-        buttonLink: "/products/products",
+        buttonLink: "/gallery",
         image: "/img/hero.jpg"
     };
     

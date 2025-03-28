@@ -2,8 +2,8 @@ import React from "react";
 
 const Basket = ({ title, basket }) => {
     const basketData = [
-        { product: { name: "T-shirt" }, quantity: 2 },
-        { product: { name: "Jeans" }, quantity: 1 },
+        { product: { name: "painting 1" }, quantity: 2 },
+        { product: { name: "painting 2" }, quantity: 1 },
       ];
 
   return (

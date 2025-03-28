@@ -16,10 +16,11 @@ const Gallery = () =>{
     return(
         <main>
             <h1 className="text-4xl bold text-center p-4">Gallery</h1>
-            <div className="grid grid-cols-4 items-center">
+
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-0">
                 {products.map((product) => (
-                    <div key={product.id}>                        
-                        <img src={product.image} alt="" />
+                    <div key={product.id} className="w-full overflow-hidden">                        
+                        <img src={product.image} alt="" className="w-full h-full object-cover block"/>
                     </div>
                 ))}
             </div>

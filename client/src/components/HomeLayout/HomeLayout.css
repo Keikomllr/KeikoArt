@@ -13,25 +13,25 @@ a {
 }
 
 a:hover {
-  color:  rgb(177, 177, 204); /* マウスオーバー時に文字色をグレーに変更 */
+  color:  rgb(177, 177, 204); 
 }
 
 /*---TITLE FLOAT UP---*/
 @keyframes floatUp {
   from {
-    opacity: 0; /* 最初は透明 */
-    transform: translateY(50px); /* 50px下からスタート */
+    opacity: 0; 
+    transform: translateY(50px); 
   }
   to {
-    opacity: 1; /* 最終的に完全に表示 */
-    transform: translateY(0); /* 元の位置に移動 */
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }
 
 .header-title, .header-subtitle {
-  text-align: center; /* 中央揃え */
-  opacity: 0; /* 最初は見えない */
-  animation: floatUp 1.5s ease-out forwards; /* 1.5秒かけてアニメーション */
+  text-align: center; 
+  opacity: 0; 
+  animation: floatUp 1.5s ease-out forwards; 
 }
 .header-title{
  font-size: 3rem;
@@ -43,21 +43,22 @@ a:hover {
 
 
 /*-------HAMBURGER MENU------*/
-/* ヘッダーのスタイル */
 header {
   position: relative;
 }
 
 
-/* ハンバーガーメニュー（デフォルトは非表示） */
 .hamburger {
+  position: fixed;
+  z-index: 1200;
+  top: 10px;
+  left: 10px;
   font-size: 2rem;
   text-decoration: none;
   color: black;
   font-weight: bold;
   cursor: pointer;
-  color: black;
-  background: rgb(255, 255, 255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -67,24 +68,23 @@ header {
   color: blue;
 } 
 
-/* スクロール後に表示されるハンバーガーメニュー */
+/* After scroll down */
 .sticky-hamburger {
-  position: fixed;
   top: 10px;
-  left: 10px;
-  z-index: 1000;
-  display: block; /* JavaScriptで制御 */
+  left: 10px; 
+  display: block; 
 }
 
-/* モバイル用 & スクロール後のメニュー（共通化） */
+/* Moble ver & After scroll*/
 .nav-menu {
   font-size: 1.5rem;
   list-style: none;
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50vh; /* 画面の半分の高さ */
+  height: 50vh; 
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(-100%);
@@ -98,40 +98,31 @@ header {
   visibility: hidden;
 }
 
-/* メニューが開いたとき */
+/* OPEN MENU */
 .nav-menu.open {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
 
-/* 768px以上のデスクトップで、スクロール後にメニューが表示されるようにする */
-@media (min-width: 768px) {
-  .nav-menu {
-    display: none; /* デフォルトは非表示 */
-  }
 
-  .nav-menu.visible {
-    display: flex; /* スクロール後に表示 */
-  }
-}
+
 @media (max-width: 1000px) {
   .header-title{
     font-size: 2rem;
   }
 }
-/* 768px以下のモバイル向け */
+
 @media (max-width: 768px) {  
   .desktop-nav {
-    display: none; /* PCのナビゲーションを隠す */
+    display: none; 
   }
   .header-title{padding-top: 5%;}
   .hamburger {
     display: block;
     position: fixed;
     top: 10px;
-    left: 10px;
-    z-index: 1000;
+    left: 10px; 
   }
   .nav-menu {
     display: flex;
@@ -142,8 +133,6 @@ header {
   font-weight: 800;
   color :rgba(96, 170, 145, 0.801);
 }
-
-
 
 
 nav ul {
@@ -178,4 +167,5 @@ body{
   background-color: aliceblue;
   border-radius: 100%;
   height: fit-content;
+  z-index: 1200;
 }

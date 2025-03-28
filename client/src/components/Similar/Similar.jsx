@@ -2,32 +2,34 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router";
 
-const Similar = ({ headline, category, products = [] }) => { // ✅ デフォルト値を `[]` に設定
+const Similar = ({ headline, category, products = [] }) => { 
+
     const similarProducts = products.filter(
       (item) => item.category === category
-    );// ✅ カテゴリーが同じ商品をフィルタリング
+    ); //Filter by category
 
-    // ✅ ランダムにシャッフルする関数
+    // SHUFFLE 
     const shuffleArray = (array) => {
         return array
-          .map((item) => ({ item, sort: Math.random() })) // ランダムな値を割り当て
-          .sort((a, b) => a.sort - b.sort) // その値でソート
-          .map(({ item }) => item); // 元のオブジェクトの配列に戻す
+          .map((item) => ({ item, sort: Math.random() })) 
+          .sort((a, b) => a.sort - b.sort) 
+          .map(({ item }) => item); 
       };
     
-      const randomProducts = shuffleArray(similarProducts); // ✅ ランダム化
+      const randomProducts = shuffleArray(similarProducts); // MAKING RANDOM
     
-      // ✅ スライダーの設定
+      // SLIDER
       const settings = {
-        dots: true, // 下にドットのナビゲーションを表示
-        infinite: true, // 無限ループ
-        speed: 500, // 切り替え速度
-        slidesToShow: 3, // ✅ 3つずつ表示
-        slidesToScroll: 3, // ✅ 3つずつスライド
-        autoplay: true, // 自動再生
-        autoplaySpeed: 3000, // 3秒ごとにスライド
-        arrows: true, // 次へ・前へボタン
+        dots: true, 
+        infinite: true, // loop
+        speed: 500, 
+        slidesToShow: 3, 
+        slidesToScroll: 3, 
+        autoplay: true, 
+        autoplaySpeed: 3000, 
+        arrows: true, 
       };
 
 return ( 
@@ -37,15 +39,17 @@ return (
                     {randomProducts.length > 0 ? (
                     randomProducts.map((product) => (
                         <div key={product.id} className="p-4">
+                            <Link to={`/artworks/${product.slug}`}>
                             <div className="border p-4 rounded shadow">
                                 <img src={product.image} alt={product.title} className="w-full h-auto"/>
                                 <h3 className="text-lg font-bold mt-2">{product.title}</h3>
                                 <p>{product.price} SEK</p>
                             </div>
+                            </Link>
                         </div>
                     ))
                     ) : (
-                    <p>No similar artworks found.</p>
+                        <p>No similar artworks found.</p>
                     )}
                 </Slider>
 

@@ -7,20 +7,19 @@ import SearchBar from"../../components/SearchBar/SearchBar";
 const HomeLayout = () => {
   
   const handleSearch = (query) => {
-    console.log("Searching word:", query); // 検索ワードを受け取る（あとで検索機能に使える）
-    // TODO: 検索結果を表示する処理を追加（APIリクエスト、フィルタリングなど）
+    console.log("Searching word:", query); 
   }; 
 
   const [isOpen, setIsOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(window.innerWidth <= 768);
 
 
-  // メニューの開閉
+  // OPEN/CLOSE MENU
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // スクロール時の処理
+  // SCROLLING
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth > 768) {
@@ -82,9 +81,7 @@ const HomeLayout = () => {
                   <img src="/img/heart.png" alt="heart Icon" className="w-9" />
                 </button>
               </Link>
-            
-              {/* <button className="checkoutButton search">
-                <img src="/img/search.png" alt="search Icon" className="w-9" /></button> */}
+
                 <SearchBar onSearch={handleSearch} />
                 
             </div>
@@ -115,14 +112,13 @@ const HomeLayout = () => {
           </div>
         </nav>
 
-         {/* モバイルでは常に表示、デスクトップではスクロール後に表示 */}
+         {/* MOBILE = alwauys display, DESKTOP = display after scroll down*/}
       {showHamburger && (
         <button className="hamburger sticky-hamburger" onClick={toggleMenu}>
           {isOpen ? "✖" : "☰"}
         </button>
       )}
 
-      {/* モバイルとスクロール後のメニューを共通化 */}
       <nav>
         <ul className={`nav-menu ${isOpen ? "open" : ""}`}>
           <li><NavLink to="/" end className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
@@ -159,10 +155,10 @@ const HomeLayout = () => {
 
 
     <footer className="py-12">
-      <section className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 border shadow">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border shadow p-5">
         <div className="flex flex-row items-center p-4">
           <div> 
-            <img src="/img/globe-earth.png" alt="" />
+            <img src="/img/globe-earth.png" alt="" className="h-12 w-12" />
           </div>
           <div className="p-2 text-xl font-bold text-gray-400">
             <p>Global Delivery</p>
@@ -170,7 +166,7 @@ const HomeLayout = () => {
         </div>
         <div className="flex flex-row items-center p-4">
           <div>
-            <img src="/img/return.png" alt="" />
+            <img src="/img/return.png" alt="" className="h-12 w-12" />
           </div>
           <div className="p-2 text-xl font-bold text-gray-400">
             <p>Free returns</p>
@@ -178,7 +174,7 @@ const HomeLayout = () => {
         </div>
         <div className="flex flex-row items-center p-4">
           <div>
-            <img src="/img/security.png" alt="" />
+            <img src="/img/security.png" alt="" className="h-12 w-12" />
           </div>
           <div className="p-2 text-xl font-bold text-gray-400">
             <p>Safe Payments</p>
@@ -186,7 +182,7 @@ const HomeLayout = () => {
         </div>
         <div className="flex flex-row items-center p-4">
           <div>
-            <img src="/img/smile.png" alt="" />
+            <img src="/img/smile.png" alt="" className="h-12 w-12" />
           </div>
           <div className="p-2 text-xl font-bold text-gray-400">
             <p>News Letter</p>
@@ -195,9 +191,9 @@ const HomeLayout = () => {
       </section>
 
       <section className="bg-gray-100 p-6">
-      {/* 640px以上で横並び */}
+      {/* > 640px No accordion */}
       <div className="hidden md:grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        {/* カラム1 */}
+        {/* column 1 */}
         <div>
           <h3 className="font-bold mb-2">About</h3>
           <ul className="text-sm space-y-1">
@@ -208,7 +204,7 @@ const HomeLayout = () => {
           </ul>
         </div>
         
-        {/* カラム2 */}
+        {/* column 2 */}
         <div>
           <h3 className="font-bold mb-2">Follow Me</h3>
           <ul className="text-sm space-y-1">
@@ -219,7 +215,7 @@ const HomeLayout = () => {
           </ul>
         </div>
 
-        {/* カラム3 */}
+        {/* column 3 */}
         <div>
           <h3 className="font-bold mb-2">Custermer Service</h3>
           <ul className="text-sm space-y-1">
@@ -229,7 +225,7 @@ const HomeLayout = () => {
           </ul>
         </div>
 
-        {/* カラム4 */}
+        {/* column 4 */}
         <div>
           <h3 className="font-bold mb-2">News Letter</h3>
           <p className="text-sm mb-2">Subscribe and get access to news, offers, and inspiration!</p>
@@ -247,7 +243,7 @@ const HomeLayout = () => {
         </div>
       </div>
 
-      {/* 640px以下ではアコーディオン */}
+      {/* < 640px ACCORDION*/}
       <div className="md:hidden">
         {[
           { title: "About Us", items: ["Our Story", "Company", "Press", "Careers"], id: "section1" },

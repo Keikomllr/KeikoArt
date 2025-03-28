@@ -6,6 +6,10 @@ const CategoryContainer = styled.div`
     display:flex;
     display:flex-row;
     padding: 4px;
+
+    @media(min-width: 1450px){
+    justify-content:center;
+}
 `;
   
 const CategoryContainer2 = styled.div`

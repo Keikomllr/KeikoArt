@@ -10,10 +10,10 @@ const SearchResults = () => {
 
   useEffect(() => {
     if (query) {
-      fetch(`/api/search?q=${encodeURIComponent(query)}`) // ✅ ポート 8000 に修正
+      fetch(`/api/search?q=${encodeURIComponent(query)}`) 
         .then((res) => {
           if (!res.ok) {
-            throw new Error("サーバーエラー");
+            throw new Error("Server Error");
           }
           return res.json();
         })
@@ -35,7 +35,7 @@ const SearchResults = () => {
         <ul className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 mx-auto gap-2 p-4">
           {results.map((item) => (
             <li key={item.id} className="border rounded shadow p-4">
-              <Link to={`/artworks/${item.id}`}>
+              <Link to={`/artworks/${item.slug}`}>
               <img src={item.image} alt={item.title} className="w-full"/>
               <h3 className="text-xl font-bold mt-2">{item.title}</h3>
               <div className="flex justify-between items-center">

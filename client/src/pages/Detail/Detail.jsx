@@ -10,27 +10,27 @@ function Detail() {
     const{ slug } = useParams(); //Get slug
 
     const [product, setProduct] = useState(null); 
-    const [products, setProducts] = useState([]); // ✅ 追加: 全商品のデータを管理
+    const [products, setProducts] = useState([]); 
     const [similarProducts, setSimilarProducts] = useState([]);
 
-    useEffect(() => {   // 単体商品のデータ取得
+    useEffect(() => {   
         fetch(`/api/artworks/slug/${slug}`)
         .then((resp) => resp.json())
         .then((product) => {
             setProduct(product);
         });
 
-    // ✅ 全商品のデータを取得して、類似商品のフィルタリングに使う
+   
     fetch(`/api/artworks`)
     .then((resp) => resp.json())
     .then((data) => {
         setProducts(data);
     });
 
-  }, [slug]); // ✅ slugを依存にして、ページが変わるたびに再取得
+  }, [slug]); 
 
 
-    // 類似商品をフィルター
+    // FILTER FOR SIMILAR PRODUCT
     useEffect(() => {
         if (product && products.length > 0) {
         const filtered = products.filter(
@@ -57,7 +57,7 @@ function Detail() {
                 <p className="text-2xl font-bold py-1">{product.price} SEK</p>
                 <form method="post" action="/basket" className="flex items-center gap-4">
                     <input type="hidden" name="productId" value={product.id}></input>
-                    <button className="bg-transparent hover:bg-blue-400 text-blue-700 font-semibold hover:text-white py-2 px-10 border border-blue-500 hover:border-transparent rounded flex-1 max-w-80 mt-3">
+                    <button className="bg-transparent hover:bg-blue-400 text-blue-700 font-semibold hover:text-white py-2 px-10 border border-blue-500 hover:border-transparent rounded flex-1 sm:w-full lg:max-w-80 mt-3">
                         Add to cart
                     </button>
                     <img src="/img/heart.png" alt="favorite_icon" className="w-8 h-8 cursor-pointer" />

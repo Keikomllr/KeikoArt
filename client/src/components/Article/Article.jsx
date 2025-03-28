@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 const Article = ( { headline, articles } ) => {
     
-    // 画面サイズに応じて表示する動画の数を決定
-
     const [displayedVideos, setDisplayedVideos] = useState([]);
     
     useEffect(() => {
@@ -17,6 +16,7 @@ const Article = ( { headline, articles } ) => {
       return () => window.removeEventListener("resize", updateVideos);
     }, [articles]);
     
+    
     return(
         <section className="article w-full mx-auto p-4">
             <h1 className="text-center text-3xl font-bold p-5">{headline}</h1>
@@ -27,7 +27,7 @@ const Article = ( { headline, articles } ) => {
                     <video width="100%" autoPlay loop controls muted> 
                         <source src={article.image} type={article.type} />
                     </video>
-                    <a href={article.buttonLink}>{article.buttonLabel}</a>
+                    <Link to={article.buttonLink}>{article.buttonLabel}</Link>
                 </div>   
              ))}
              </div>

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router";
 function NewArtwork () {
     const navigate = useNavigate();
 
     const [ formData, setFormData] = useState({
         title: "",
+        slug: "",
         size: "",
         year: "",
         material: "",
@@ -20,7 +21,7 @@ function NewArtwork () {
 
     const handleSubmit = (event) => {
 
-        event.preventDefault(); // フォーム送信時のページリロードを防ぐ
+        event.preventDefault(); 
 
         fetch("/api/artworks", {  // APIエンドポイントにデータを送信
             method: "POST",
@@ -67,7 +68,7 @@ function NewArtwork () {
         }
     };
 
-    // **`availability` と `for_sale` のチェックボックス処理**
+    // **`CHECKBOX for availability`and `for_sale` **
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
         setFormData({
@@ -79,9 +80,11 @@ function NewArtwork () {
     return (
         <>
             <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
+            <Link to="/">
             <h1 className="flex items-center justify-center bg-gray-200 p-10 text-4xl font-bold shadow-lg">
                 Administration
             </h1>
+            </Link>
 
             <div className="min-h-screen flex items-center justify-center text-white p-10">
                 <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-md">
@@ -100,7 +103,22 @@ function NewArtwork () {
                             className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             placeholder="Enter title"
                             />
-                        </div>    
+                        </div> 
+
+                        <div>
+                            <label htmlFor="slug" className="block text-xl font-medium">
+                                URL slug
+                            </label>
+                            <input 
+                            type="text"
+                            id="slug"
+                            name="slug"
+                            value={formData.slug}
+                            onChange={handleInputChange} 
+                            className="w-full p-3 mt-1 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            placeholder="Enter URL slug"
+                            />
+                        </div>       
                         
                         <div>
                             <label htmlFor="size" className="block text-xl font-medium">

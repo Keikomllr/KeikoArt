@@ -60,64 +60,65 @@ const TableRow = styled.tr`
 `;
 
 
-    const Productslist = () => {
+  const Productslist = () => {
 
-        const [products, setProducts] = useState([]);
+      const [products, setProducts] = useState([]);
 
-        useEffect(() => {
-            fetch('/api/artworks')
-            .then(response => response.json())
-            .then(data => {
-                setProducts(data);
-            })
-        },[]);
+      useEffect(() => {
+          fetch('/api/artworks')
+          .then(response => response.json())
+          .then(data => {
+              setProducts(data);
+          })
+      },[]);
 
-    return (
-        <> 
-          <div>
-            <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
-            <Link to="/">
-             <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
-            </Link>
-          </div>  
-            
-           <TableConteiner>
-                <SubTitles>
-                    <div>
-                        <h2 className="p-5 text-3xl font-bold">Artworks</h2>
-                    </div>
-                    <div>
-                        <Link to="/admin/artworks/new">
-                            <button className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                            New Artwork</button>
-                        </Link>
-                    </div>
-                </SubTitles>    
-                <Table>
-                    <thead>
-                      <tr>
-                        <TableHeader>Title</TableHeader>
-                        <TableHeader>Image</TableHeader>
-                        <TableHeader>Size</TableHeader>
-                        <TableHeader>Material</TableHeader>
-                        <TableHeader>Price</TableHeader>                
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {products.map(product => (
-                        <TableRow key={product.id}>
-                                <TableCell>{product.title}</TableCell>
-                                <TableCell><img src={product.image} alt="" width="60px" /></TableCell>
-                                <TableCell>{product.size}</TableCell>
-                                <TableCell>{product.material}</TableCell>
-                                <TableCell>{product.price} kr</TableCell>
-                        </TableRow>
-                        ))}
-                    </tbody>
-                </Table>
-            </TableConteiner>    
-        </> 
+  return (
+      <> 
+        <div>
+          <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
+          <Link to="/">
+            <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
+          </Link>
+        </div>  
+          
+        <TableConteiner>
+          <SubTitles>
+            <div>
+              <h2 className="p-5 text-3xl font-bold">Artworks</h2>
+            </div>
+            <div>
+              <Link to="/admin/artworks/new">
+                <button className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                New Artwork</button>
+              </Link>
+            </div>
+          </SubTitles>  
+
+          <Table>
+            <thead>
+              <tr>
+                <TableHeader>Title</TableHeader>
+                <TableHeader>Image</TableHeader>
+                <TableHeader>Size</TableHeader>
+                <TableHeader>Material</TableHeader>
+                <TableHeader>Price</TableHeader>                
+              </tr>
+            </thead>
+            <tbody>
+              {products.map(product => (
+                <TableRow key={product.id}>
+                  <TableCell>{product.title}</TableCell>
+                  <TableCell><img src={product.image} alt="" width="60px" /></TableCell>
+                  <TableCell>{product.size}</TableCell>
+                  <TableCell>{product.material}</TableCell>
+                  <TableCell>{product.price} kr</TableCell>
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+        </TableConteiner>    
+      </> 
     );
-};
+  };
 
 export default Productslist;

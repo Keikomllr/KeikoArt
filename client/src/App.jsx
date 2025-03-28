@@ -8,6 +8,8 @@ import HomeLayout from "./components/HomeLayout/HomeLayout";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import About from "./pages/About/About";
 import Gallery from "./pages/Gallery/Gallery";
+import Store from "./pages/Store/Store";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -18,12 +20,14 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
 
         <Route path="/admin/artworks_list" element={<Productslist />} />
         <Route path="/admin/artworks/new" element={<NewArtwork />} />
         <Route path="/basket" element={<Basket/>}/> 
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        
       </Routes>
     );
 }
