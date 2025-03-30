@@ -17,7 +17,7 @@ import styled from 'styled-components';
   const Title = styled.h2`
     text-align: center;
     font-size:2rem;
-    font-weight:600;
+    font-weight:800;
     margin-bottom: 1.5rem;
   `;
   

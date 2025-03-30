@@ -73,14 +73,7 @@ const TableRow = styled.tr`
       },[]);
 
   return (
-      <> 
-        <div>
-          <img src="/img/keikoicon1.png" alt="" className="header-icon  w-20 absolute inset-x-6 top-7"/>
-          <Link to="/">
-            <h1 className=" bg-gray-200 p-10 text-4xl font-bold shadow-lg flex items-center justify-center">Administration</h1>
-          </Link>
-        </div>  
-          
+      <>  
         <TableConteiner>
           <SubTitles>
             <div>
@@ -116,7 +109,7 @@ const TableRow = styled.tr`
               ))}
             </tbody>
           </Table>
-        </TableConteiner>    
+        </TableConteiner> 
       </> 
     );
   };

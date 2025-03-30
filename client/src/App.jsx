@@ -10,11 +10,12 @@ import About from "./pages/About/About";
 import Gallery from "./pages/Gallery/Gallery";
 import Store from "./pages/Store/Store";
 import Contact from "./pages/Contact/Contact";
+import AdminLayout from "./components/AdminLayout/AdminLayout";
 
 function App() {
   return (
        <Routes>
-        <Route element={<HomeLayout />}>
+        <Route element={<HomeLayout />} >
           <Route path="/" element={<Home />} />
           <Route path="/artworks/:slug" element={<Detail />} />
           <Route path="/search" element={<SearchResults />} />
@@ -22,11 +23,14 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/store" element={<Store />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/basket" element={<Basket/>}/> 
         </Route>
 
-        <Route path="/admin/artworks_list" element={<Productslist />} />
-        <Route path="/admin/artworks/new" element={<NewArtwork />} />
-        <Route path="/basket" element={<Basket/>}/> 
+        <Route element={<AdminLayout />} >
+          <Route path="/admin/artworks_list" element={<Productslist />} />
+          <Route path="/admin/artworks/new" element={<NewArtwork />} />
+        </Route>  
+        
         
       </Routes>
     );

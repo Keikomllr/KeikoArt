@@ -15,7 +15,7 @@ const Gallery = () =>{
 
     return(
         <main>
-            <h1 className="text-4xl bold text-center p-4">Gallery</h1>
+            <h1 className="text-4xl font-bold text-center p-8">Gallery</h1>
 
             <div className="grid grid-cols-3 md:grid-cols-4 gap-0">
                 {products.map((product) => (
