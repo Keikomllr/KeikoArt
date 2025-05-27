@@ -10,6 +10,10 @@ const app = express();
 
 app.use(express.json()); 
 
+app.get('/', (req, res) => {
+  res.send('Hello from server!');
+});
+
 // GET /api/artworks
 app.get("/api/artworks", (req, res) => {
     const select = db.prepare("SELECT * FROM artworks");
