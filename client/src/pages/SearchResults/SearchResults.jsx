@@ -10,7 +10,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     if (query) {
-      fetch(`/api/search?q=${encodeURIComponent(query)}`) 
+      fetch(`${import.meta.env.VITE_API_URL}/api/search?q=${encodeURIComponent(query)}`) 
         .then((res) => {
           if (!res.ok) {
             throw new Error("Server Error");

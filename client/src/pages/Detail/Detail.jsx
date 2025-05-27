@@ -14,14 +14,14 @@ function Detail() {
     const [similarProducts, setSimilarProducts] = useState([]);
 
     useEffect(() => {   
-        fetch(`/api/artworks/slug/${slug}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/artworks/slug/${slug}`)
         .then((resp) => resp.json())
         .then((product) => {
             setProduct(product);
         });
 
    
-    fetch(`/api/artworks`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
     .then((resp) => resp.json())
     .then((data) => {
         setProducts(data);

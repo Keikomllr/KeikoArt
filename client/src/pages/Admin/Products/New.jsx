@@ -23,7 +23,7 @@ function NewArtwork () {
 
         event.preventDefault(); 
 
-        fetch("/api/artworks", {  // APIエンドポイントにデータを送信
+        fetch("${import.meta.env.VITE_API_URL}/api/artworks", {  // APIエンドポイントにデータを送信
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

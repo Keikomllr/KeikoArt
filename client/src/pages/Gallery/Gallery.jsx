@@ -6,7 +6,7 @@ const Gallery = () =>{
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('/api/artworks')
+        fetch('${import.meta.env.VITE_API_URL}/api/artworks')
         .then(response => response.json())
         .then(data => {
             setProducts(data);
