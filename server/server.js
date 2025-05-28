@@ -7,7 +7,10 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(cors()); // 👈 ここでCORSを許可
+// 🔥 CORS設定：ローカル + Netlifyを許可
+app.use(cors({
+  origin: ["http://localhost:3000", "https://keikosuzukimoller.netlify.app"]
+}));
 app.use(express.json());
 
 // 🔹 JSONファイルのパス
