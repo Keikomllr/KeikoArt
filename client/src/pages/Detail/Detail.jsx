@@ -14,14 +14,19 @@ function Detail() {
     const [similarProducts, setSimilarProducts] = useState([]);
 
     useEffect(() => {   
-        fetch(`${import.meta.env.VITE_API_URL}/api/artworks/slug/${slug}`)
+    
+    const baseUrl = import.meta.env.DEV
+    ? 'http://localhost:8000' // ローカルでバックエンドを動かすとき
+    : import.meta.env.VITE_API_URL; // 本番は .env に書いたURLを使う
+
+      fetch(`${baseUrl}/api/artworks/slug/${slug}`)
         .then((resp) => resp.json())
         .then((product) => {
             setProduct(product);
         });
 
-   
-    fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
+    
+      fetch(`${baseUrl}/api/artworks`)
     .then((resp) => resp.json())
     .then((data) => {
         setProducts(data);

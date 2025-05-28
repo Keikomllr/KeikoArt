@@ -6,7 +6,11 @@ const Gallery = () =>{
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/api/artworks`)
+        const baseUrl = import.meta.env.DEV
+        ? 'http://localhost:8000' // ローカルでバックエンドを動かすとき
+        : import.meta.env.VITE_API_URL; // 本番は .env に書いたURLを使う
+    
+      fetch(`${baseUrl}/api/artworks`)
         .then(response => response.json())
         .then(data => {
             setProducts(data);

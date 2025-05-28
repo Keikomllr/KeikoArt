@@ -1,9 +1,13 @@
 const express = require("express");
+const cors = require("cors"); // 追加！
 const fs = require("fs");
 const path = require("path");
 const port = process.env.PORT || 8000;
 
+
 const app = express();
+
+app.use(cors()); // 👈 ここでCORSを許可
 app.use(express.json());
 
 // 🔹 JSONファイルのパス
