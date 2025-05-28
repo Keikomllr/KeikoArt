@@ -8,7 +8,7 @@ This project was developed as part of my portfolio to combine creativity with te
 
 #Deploy URL (Live Demo)
 - Frontend: https://keikosuzukimoller.netlify.app/
-- Backend (API): https://keikoart-production.up.api.railway.app
+- Backend (API): https://keikoart-production.up.railway.app/
 
 #Tech Stack
 - Frontend: React, Vite, JavaScript, CSS
