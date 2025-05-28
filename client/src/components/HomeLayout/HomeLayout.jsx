@@ -69,7 +69,7 @@ const HomeLayout = () => {
               </Link>  
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="hidden sm:flex items-center space-x-4">
               <Link to="/basket">
                 <button className="checkoutButton basket">
                   <img src="/img/basket.png" alt="Basket Icon" className="w-9"/>
@@ -108,6 +108,7 @@ const HomeLayout = () => {
               <li><NavLink to="/contact" className={({ isActive }) => (isActive ? "active-link" : "inactive-link")}>
                 Contact
               </NavLink></li>
+              
             </ul>
           </div>
         </nav>
